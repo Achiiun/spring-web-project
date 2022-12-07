@@ -5,9 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
 @ToString
+@Setter
+@Getter
 public class Criteria {
 
   private int pageNum;
@@ -17,7 +17,7 @@ public class Criteria {
   private String keyword;
 
   public Criteria() {
-    this(1,10);
+    this(1, 10);
   }
 
   public Criteria(int pageNum, int amount) {
@@ -26,7 +26,8 @@ public class Criteria {
   }
 
   public String[] getTypeArr() {
-    return type == null ? new String[] {}: type.split("");
+
+    return type == null ? new String[] {} : type.split("");
   }
 
   public String getListLink() {
@@ -38,5 +39,6 @@ public class Criteria {
         .queryParam("keyword", this.getKeyword());
 
     return builder.toUriString();
+
   }
 }

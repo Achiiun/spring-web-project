@@ -18,4 +18,5 @@ public interface ReplyService {
   public List<ReplyVO> getList(Criteria cri, Long bno);
 
   public ReplyPageDTO getListPage(Criteria cri, Long bno);
+
 }
