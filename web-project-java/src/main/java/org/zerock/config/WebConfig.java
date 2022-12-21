@@ -11,7 +11,7 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { RootConfig.class };
+		return new Class[] { RootConfig.class, SecurityConfig.class };
 	}
 
 	@Override
@@ -24,12 +24,13 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 		return new String[] { "/" };
 	}
 
-//	@Override
-//	protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-//
-//		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
-//
-//	}
+	// @Override
+	// protected void customizeRegistration(ServletRegistration.Dynamic
+	// registration) {
+	//
+	// registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
+	//
+	// }
 
 	@Override
 	protected Filter[] getServletFilters() {
@@ -45,12 +46,8 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 
 		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
 
-		MultipartConfigElement multipartConfig = 
-				new MultipartConfigElement("C:\\upload\\temp", 
-						20971520, 
-						41943040,
-						20971520);
-		
+		MultipartConfigElement multipartConfig = new MultipartConfigElement("C:\\upload\\temp", 20971520, 41943040,
+				20971520);
 		registration.setMultipartConfig(multipartConfig);
 
 	}
